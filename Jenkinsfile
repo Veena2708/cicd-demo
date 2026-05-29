@@ -3,21 +3,18 @@ pipeline {
 
     stages {
 
-        stage('Clone') {
-            steps {
-                echo 'Code pulled from GitHub'
-            }
-        }
-
         stage('Build') {
             steps {
-                echo 'Build successful'
+                echo 'Build Successful'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Application deployed successfully'
+                sh '''
+                mkdir -p deploy
+                cp index.html deploy/
+                '''
             }
         }
     }
