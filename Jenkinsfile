@@ -8,13 +8,11 @@ pipeline {
                 echo 'Build Successful'
             }
         }
-
-        stage('Deploy') {
-            steps {
-                sh '''
-                mkdir -p deployment
-                cp index.html deployment/
-                '''
+stage('Deploy') {
+    steps {
+        sh '''
+        cp index.html deployment/
+        '''
             }
         }
     }
