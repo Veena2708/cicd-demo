@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+
         stage('Build') {
             steps {
                 echo 'Build Successful'
@@ -10,7 +11,10 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Deployment Successful'
+                sh '''
+                mkdir -p deployment
+                cp index.html deployment/
+                '''
             }
         }
     }
